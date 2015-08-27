@@ -26,11 +26,25 @@ func circleArea2(c Circle) float64 {
 	return math.Pi * c.r * c.r
 }
 
+func (c *Circle) area() float64 {
+	return math.Pi * c.r * c.r
+}
+
 type Circle struct {
 	//	x float64
 	//	y float64
 	//	r float64
 	x, y, r float64
+}
+
+type Rectangle struct {
+	x1, y1, x2, y2 float64
+}
+
+func (r *Rectangle) area() float64 {
+	l := distance(r.x1, r.y1, r.x1, r.y2)
+	w := distance(r.x1, r.y1, r.x2, r.y1)
+	return l * w
 }
 
 func main() {
@@ -53,4 +67,9 @@ func main() {
 	fmt.Println(c2.x, c2.y, c2.r)
 
 	fmt.Println(circleArea2(c2))
+
+	fmt.Println(c2.area())
+
+	r := Rectangle{0, 0, 10, 10}
+	fmt.Println(r.area())
 }
