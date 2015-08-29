@@ -34,9 +34,9 @@ func f(n int) {
 //}
 
 func main() {
-	//for i := 0; i < 10; i++ {
-	go f(0)
-	//}
+	for i := 0; i < 10; i++ {
+		go f(i)
+	}
 
 	//var c chan string = make(chan string)
 	//	go pinger(c)
